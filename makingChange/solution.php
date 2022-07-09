@@ -19,7 +19,7 @@ function makeChange(int $total): int {
     return $numCoins;
 }
 
-echo makeChange(0), PHP_EOL;
-echo makeChange(12), PHP_EOL;
-echo makeChange(468), PHP_EOL;
-echo makeChange(123456), PHP_EOL;
+echo "makeChange(0) => ", makeChange(0), PHP_EOL;
+echo "makeChange(12) => ", makeChange(12), PHP_EOL;
+echo "makeChange(468) => ", makeChange(468), PHP_EOL;
+echo "makeChange(123456) => ", makeChange(123456), PHP_EOL;
