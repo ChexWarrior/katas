@@ -7,8 +7,6 @@ def same_necklace(necklace1, necklace2):
     if necklace1 == necklace2:
         return True
 
-    # If we can move one string around to be the other then we have a match!
-    # We need to keep track of the initial state so we know when we've repeated
     tempNecklace = necklace1
     i = 1
 
