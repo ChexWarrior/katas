@@ -2,14 +2,12 @@
 
 function sorting($target) {
     $toSort = str_split($target);
-    $sortedTarget = '';
-    $lowest = $toSort[0];
 
     // check if each char after is lower according to rules
     // if so place target char in current position and move
     // others down, don't increment $i repeat unless we've gone through whole string
     $current = 0;
-    for ($i = 0; $i < count($toSort); $i += 1) {
+    for ($i = 0; $i < count($toSort); $i += 0) {
         if ($i + 1 < count($toSort) && !determineLowest($toSort[$current], $toSort[$i + 1])) {
             $temp = $toSort[$current];
             $toSort[$current] = $toSort[$i + 1];
@@ -29,6 +27,8 @@ function sorting($target) {
             $i = $current;
         }
     }
+
+    return implode('', $toSort);
 }
 
 // Rules lowercase before upper, letter before number otherwise alphanumeric
@@ -46,12 +46,18 @@ function determineLowest($a, $b) {
         return $a < $b;
     }
 
-    // Assume both are alpha at this point
-    if (ctype_upper($a) && !ctype_upper($b)) return false;
+    if (strtolower($a) === strtolower($b)) {
+        if (!ctype_upper($a) && ctype_upper($b)) {
+            return true;
+        }
 
-    if (!ctype_upper($a) && ctype_upper($b)) return true;
+        return false;
+    }
 
-    return $a < $b;
+    return strtolower($a) < strtolower($b);
 }
 
-
+echo sorting("eA2a1E"), PHP_EOL;
+echo sorting("Re4r"), PHP_EOL;
+echo sorting("6jnM31Q"), PHP_EOL;
+echo sorting("846ZIbo"), PHP_EOL;
