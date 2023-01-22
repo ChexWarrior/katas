@@ -5,10 +5,11 @@ function freqCount($nested, $element) {
 }
 
 function unwind($group, $element, $level, $index, $occurrences) {
-    $item = $group[$index];
-
-    if (!isset($item)) {
+    $item = NULL;
+    if (!isset($group[$index])) {
         return $occurrences;
+    } else {
+        $item = $group[$index];
     }
 
     if (is_array($item)) {
