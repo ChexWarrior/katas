@@ -31,3 +31,6 @@ function unwind($group, $element, $level, $index, $occurrences) {
     }
 }
 
+$result = freqCount([1, 4, 4, [1, 1, [1, 2, 1, 1]]], 1);
+var_dump($result);
+
